@@ -1,0 +1,19 @@
+<meta charset="UTF-8" />
+<title>トデファイ</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<h1>トデファイ</h1>
+<p>推奨環境: Google Chrome 最新版</p>
+<div id="console">
+    <input type='file' id="upload-input" accept="image/*" multiple></input>
+    <button id="clear-btn" onclick="todeClear();">クリア</button>
+</div>
+<div id="container">
+    <div class="todefy-pair">
+        <img class="source" src="tode.jpg" onload="todefy()" />
+        <p class="todefy-marker">== todefy! =&gt;</p>
+        <img class="todefied" />
+    </div>
+</div>
+<canvas id="canvas" style="display:none;"></canvas>
+<script src="todefy.js"></script>
