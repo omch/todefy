@@ -7,7 +7,7 @@ $('#upload-input').change(function() {
     }
 
     // HACK: 本当はすべての src の load をハンドルしたい
-    setTimeout(todefy, 100);
+    setTimeout(todefy, 300);
 });
 
 const makeEntry = (src) => {
