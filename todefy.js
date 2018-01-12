@@ -11,7 +11,7 @@ $('#upload-input').change(function() {
 });
 
 const makeEntry = (src) => {
-    return $('<div class="todefy-pair"> <img class="source" src="' + src + '"/> <p class="todefy-marker">== todefy! =&gt;</p> <img class="todefied" /> </div>');
+    return $('<div class="todefy-pair"> <img class="source" src="' + src + '"> <p class="todefy-marker">== todefy! =&gt;</p> <img class="todefied" src="#"> </div>');
 }
 
 
@@ -30,7 +30,7 @@ const todefy = () => {
     $('.todefy-pair').each((i, pair) => {
         const source = $(pair).find('img.source')[0];
         const todefied = $(pair).find('img.todefied')[0];
-        if (todefied.src) return;
+        if (todefied.src && todefied.src.substr(-1,1)!="#") return;
 
         ctx.drawImage(source, 0, 0, blocks, blocks);
         ctx.imageSmoothingEnabled = false;
