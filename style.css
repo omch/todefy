@@ -10,12 +10,12 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 12px;
-    width: 78px;
+    font-family: sans-serif;
     margin: 0 3px;
 }
 
 .todefy-pair {
-    width: 500px;
+    width: 535px;
     margin: 15px;
 }
 
