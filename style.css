@@ -1,6 +1,7 @@
 .source, .todefied {
     display: inline-block;
     object-fit: contain;
+    object-position: center right;
     vertical-align: middle;
     width: 200px;
     height: 200px;
@@ -11,12 +12,12 @@
     vertical-align: middle;
     font-size: 12px;
     font-family: sans-serif;
-    margin: 0 3px;
+    margin: 0 6px;
 }
 
 .todefy-pair {
-    width: 535px;
     margin: 15px;
+    white-space: nowrap;
 }
 
 #console {
