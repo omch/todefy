@@ -5,21 +5,38 @@ upload_input.addEventListener('change', () => {
     const files = upload_input.files;
     if (!files.length) return;
 
+    const show_images = [];
     for (let file of files) {
-        const entry = makeEntry(URL.createObjectURL(file));
-        container.appendChild(entry);
+        show_images.push(
+            loadImage(URL.createObjectURL(file))
+                .then(img => appendEntry(img))
+        );
     }
 
-    // HACK: 本当はすべての src の load をハンドルしたい
-    setTimeout(todefy, 300);
+    Promise.all(show_images).then(() => todefy());
 });
 
-const makeEntry = (src) => {
+const loadImage = (src) => {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        if (img.complete) {
+            resolve(img);
+        } else {
+            img.addEventListener('load', () => resolve(img));
+            img.addEventListener('error', () => reject(img));
+        }
+    });
+};
+
+const appendEntry = (img) => {
+    container.appendChild(makeEntry(img));
+};
+
+const makeEntry = (img) => {
+    img.className = 'source';
     const parent = document.createElement('div');
     parent.className = 'todefy-pair';
-    const img = document.createElement('img');
-    img.className = 'source';
-    img.src = src;
     const marker = document.createElement('p');
     marker.className = 'todefy-marker';
     marker.textContent = '== todefy! =>';
