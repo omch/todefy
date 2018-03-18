@@ -1,20 +1,25 @@
-const upload_input = document.querySelector('#upload-input');
-const container = document.querySelector('#container');
+let upload_input, container;
 
-upload_input.addEventListener('change', () => {
-    const files = upload_input.files;
-    if (!files.length) return;
+window.onload = () => {
+    upload_input = document.querySelector('#upload-input');
+    container = document.querySelector('#container');
 
-    const show_images = [];
-    for (let file of files) {
-        show_images.push(
-            loadImage(URL.createObjectURL(file))
-                .then(img => appendEntry(img))
-        );
-    }
+    upload_input.addEventListener('change', () => {
+        const files = upload_input.files;
+        if (!files.length) return;
 
-    Promise.all(show_images).then(() => todefy());
-});
+        const show_images = [];
+        for (let file of files) {
+            show_images.push(
+                loadImage(URL.createObjectURL(file))
+                    .then(img => appendEntry(img))
+            );
+        }
+
+        Promise.all(show_images).then(() => todefy());
+    });
+};
+
 
 const loadImage = (src) => {
     return new Promise((resolve, reject) => {

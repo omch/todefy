@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=550">
-<title>トデファイ</title>
-<link rel="stylesheet" href="style.css" type="text/css">
-<h1>トデファイ</h1>
-<p><a href="https://github.com/omch/todefy">github.com/omch/todefy</a></p>
-<div id="console">
-    <input type='file' id="upload-input" accept="image/*" multiple>
-    <button id="clear-btn" onclick="todeClear();">クリア</button>
-</div>
-<div id="container">
-    <div class="todefy-pair">
-        <img class="source" src="tode.jpg" onload="todefy()" />
-        <p class="todefy-marker">== todefy! =&gt;</p>
-        <img class="todefied" src="#">
-    </div>
-</div>
-<canvas id="canvas" style="display:none;"></canvas>
-<script src="todefy.js"></script>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=550">
+        <title>トデファイ</title>
+        <script src="todefy.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <h1>トデファイ</h1>
+        <p><a href="https://github.com/omch/todefy">github.com/omch/todefy</a></p>
+        <div id="console">
+            <input type='file' id="upload-input" accept="image/*" multiple>
+            <button id="clear-btn" onclick="todeClear();">クリア</button>
+        </div>
+        <div id="container">
+            <div class="todefy-pair">
+                <img class="source" src="tode.jpg" onload="todefy()"/>
+                <p class="todefy-marker">== todefy! =&gt;</p>
+                <img class="todefied" src="#">
+            </div>
+        </div>
+        <canvas id="canvas" style="display:none;"></canvas>
+    </body>
+</html>
